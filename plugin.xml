@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+    id="com.phonegap.plugins.applicationpreferences"
+    version="1.0.0">
+
+    <name>applicationPreferences</name>
+
+    <engines>
+        <engine name="cordova" version=">=3.0.0" />
+    </engines>
+
+    <js-module src="www/applicationPreferences.js" name="applicationPreferences">
+        <clobbers target="applicationPreferences" />
+    </js-module>
+
+    <!-- ios -->
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="applicationPreferences">
+                <param name="ios-package" value="applicationPreferences" />
+            </feature>
+        </config-file>
+
+        <!-- Note: the ios src is based off src/ios implicitly -->
+        <header-file src="src/ios/applicationPreferences.h" />
+        <source-file src="src/ios/applicationPreferences.m" />
+    </platform>
+</plugin>
