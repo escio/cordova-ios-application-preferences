@@ -9,12 +9,12 @@
         <engine name="cordova" version=">=3.0.0" />
     </engines>
 
-    <js-module src="www/applicationPreferences.js" name="applicationPreferences">
-        <clobbers target="applicationPreferences" />
-    </js-module>
-
     <!-- ios -->
     <platform name="ios">
+        <js-module src="www/applicationPreferences.js" name="applicationPreferences">
+            <clobbers target="applicationPreferences" />
+        </js-module>
+
         <config-file target="config.xml" parent="/*">
             <feature name="applicationPreferences">
                 <param name="ios-package" value="applicationPreferences" />
