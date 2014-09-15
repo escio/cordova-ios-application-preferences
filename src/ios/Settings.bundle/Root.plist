@@ -6,20 +6,19 @@
 	<array>
 		<dict>
 			<key>Title</key>
-			<string>Viakoo</string>
+			<string>Info</string>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
 		</dict>
 		<dict>
 			<key>DefaultValue</key>
-			<string>0.0.1</string>
-            <key>Type</key>
-            <string>PSTitleValueSpecifier</string>
+			<string>0.0.0</string>
+			<key>Type</key>
+			<string>PSTitleValueSpecifier</string>
 			<key>Title</key>
 			<string>Version</string>
-            <key>Key</key>
-            <string>version_preference</string>
-
+			<key>Key</key>
+			<string>version_preference</string>
 		</dict>
 		<dict>
 			<key>DefaultValue</key>
