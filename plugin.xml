@@ -24,5 +24,6 @@
         <!-- Note: the ios src is based off src/ios implicitly -->
         <header-file src="src/ios/applicationPreferences.h" />
         <source-file src="src/ios/applicationPreferences.m" />
+        <resource-file src="src/ios/Settings.bundle" />
     </platform>
 </plugin>

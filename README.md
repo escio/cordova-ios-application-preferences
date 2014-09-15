@@ -28,7 +28,9 @@ A full set example could be:
 	    }
 	);
 
-NOTE: The preference must exist in a settings bundle and Root.plist in your project. See http://developer.apple.com/library/ios/#DOCUMENTATION/Cocoa/Conceptual/UserDefaults/Preferences/Preferences.html for further details.
+By default, two properties are pre-defined in the Settings.bundle version_preference and build_number_preference. 
+
+For more information about the [Settings.bundle](http://developer.apple.com/library/ios/#DOCUMENTATION/Cocoa/Conceptual/UserDefaults/Preferences/Preferences.html).
 
 ## Registering the plugin ##
 
