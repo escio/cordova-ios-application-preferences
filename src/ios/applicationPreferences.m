@@ -16,10 +16,9 @@
 
 - (void)getSetting:(CDVInvokedUrlCommand*)command
 {
-	NSString* callbackID = command.callbackId;
+	NSString* callback = command.callbackId;
 	NSArray *arguments = command.arguments;
 	NSDictionary *options = [arguments objectAtIndex:0];
-	NSString* jsString;
 
         
 		NSString *settingsName = [options objectForKey:@"key"];
@@ -38,25 +37,22 @@
 					@throw [NSException exceptionWithName:nil reason:@"Key not found" userInfo:nil];;
 			}
 			result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:returnVar];
-			jsString = [result toSuccessCallbackString:callbackID];		
 		}
 		@catch (NSException * e) 
 		{
 			result = [CDVPluginResult resultWithStatus:CDVCommandStatus_NO_RESULT messageAsString:[e reason]];
-            jsString = [result toErrorCallbackString:callbackID];
 		}
 		@finally 
 		{
-			[self writeJavascript:jsString]; //Write back to JS
+			[self.commandDelegate sendPluginResult:result callbackId:callback];
 		}
 }
 
 - (void)setSetting:(CDVInvokedUrlCommand*)command
 {
-	NSString* callbackID = command.callbackId;
+	NSString* callback = command.callbackId;
 	NSArray *arguments = command.arguments;
 	NSDictionary *options = [arguments objectAtIndex:0];
-	NSString* jsString;    
     CDVPluginResult* result;
 
     NSString *settingsName = [options objectForKey:@"key"];
@@ -67,17 +63,14 @@
     {
         [[NSUserDefaults standardUserDefaults] setValue:settingsValue forKey:settingsName];
         result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
-        jsString = [result toSuccessCallbackString:callbackID];
-			
     }
     @catch (NSException * e) 
     {
         result = [CDVPluginResult resultWithStatus:CDVCommandStatus_NO_RESULT messageAsString:[e reason]];
-        jsString = [result toErrorCallbackString:callbackID];
     }
     @finally 
     {
-        [self writeJavascript:jsString]; //Write back to JS
+        [self.commandDelegate sendPluginResult:result callbackId:callback];
     }
 }
 /*
